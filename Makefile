@@ -4,14 +4,14 @@ MAKEFLAGS += --silent
 build:
 	cmake -S . -B build
 	cmake --build build
-	ln -s ./build/compile_commands.json .
+	ln -sf ./build/compile_commands.json
 
 clean:
 	rm build -rf
 
 rebuild: clean build
 
-run:
+run: build
 	./build/bin/ECS
 
 tests:
