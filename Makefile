@@ -14,6 +14,6 @@ rebuild: clean build
 run: build
 	./build/bin/ECS
 
-tests:
+tests: build
 	cd build && make run_all_tests
 

@@ -1,19 +1,23 @@
 #include "./App.hpp"
 #include "imgui.h"
 
-SDL_Window *NewWindow() {
+SDL_Window *NewWindow()
+{
     SDL_Window *window = SDL_CreateWindow(WIN_SETTINGS.title, WIN_SETTINGS.x, WIN_SETTINGS.y, WIN_SETTINGS.w,
                                           WIN_SETTINGS.h, WIN_SETTINGS.window_flags);
-    if (window == nullptr) {
+    if (window == nullptr)
+    {
         printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
         exit(-1);
     }
     return window;
 }
 
-SDL_Renderer *NewRenderer(SDL_Window *window) {
+SDL_Renderer *NewRenderer(SDL_Window *window)
+{
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC | SDL_RENDERER_ACCELERATED);
-    if (renderer == nullptr) {
+    if (renderer == nullptr)
+    {
         SDL_Log("Error creating SDL_Renderer!");
         exit(0);
     }
@@ -23,7 +27,8 @@ SDL_Renderer *NewRenderer(SDL_Window *window) {
     return renderer;
 }
 
-void Setup(SDL_Window *window, SDL_Renderer *renderer, ImGuiIO &io) {
+void Setup(SDL_Window *window, SDL_Renderer *renderer, ImGuiIO &io)
+{
     IMGUI_CHECKVERSION();
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard; // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;  // Enable Gamepad Controls
@@ -37,11 +42,14 @@ void Setup(SDL_Window *window, SDL_Renderer *renderer, ImGuiIO &io) {
     ImGui_ImplSDLRenderer2_Init(renderer);
 }
 
-void MainLoop(SDL_Window *window, SDL_Renderer *renderer, ImGuiIO &io) {
+void MainLoop(SDL_Window *window, SDL_Renderer *renderer, ImGuiIO &io)
+{
     bool done = false;
-    while (!done) {
+    while (!done)
+    {
         SDL_Event event;
-        while (SDL_PollEvent(&event)) {
+        while (SDL_PollEvent(&event))
+        {
             ImGui_ImplSDL2_ProcessEvent(&event);
             if (event.type == SDL_QUIT)
                 done = true;
@@ -67,7 +75,8 @@ void MainLoop(SDL_Window *window, SDL_Renderer *renderer, ImGuiIO &io) {
     }
 }
 
-void Shutdown(SDL_Window *window, SDL_Renderer *renderer) {
+void Shutdown(SDL_Window *window, SDL_Renderer *renderer)
+{
     ImGui_ImplSDLRenderer2_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
@@ -77,8 +86,10 @@ void Shutdown(SDL_Window *window, SDL_Renderer *renderer) {
     SDL_Quit();
 }
 
-int CreateApp() {
-    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0) {
+int CreateApp()
+{
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
+    {
         printf("Error: %s\n", SDL_GetError());
         return -1;
     }

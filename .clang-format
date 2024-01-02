@@ -1,0 +1,30 @@
+---
+Language:      Cpp
+BasedOnStyle:  Microsoft
+
+ColumnLimit:     120
+IndentWidth:     4
+TabWidth:        4
+UseTab:          Never
+
+# AccessModifierOffset: -4
+#
+# AllowShortBlocksOnASingleLine: Empty
+# AllowShortEnumsOnASingleLine: true
+# AllowShortFunctionsOnASingleLine: Empty
+# AllowShortIfStatementsOnASingleLine: Never
+# AllowShortLoopsOnASingleLine: true
+#
+# AlwaysBreakAfterReturnType: None
+# AlwaysBreakTemplateDeclarations: Yes
+# BreakBeforeBraces: Attach
+#
+# EmptyLineAfterAccessModifier: Never
+# EmptyLineBeforeAccessModifier: LogicalBlock
+# MaxEmptyLinesToKeep: 1
+#
+# PointerAlignment: Right
+# QualifierAlignment: Right
+# ReferenceAlignment: Pointer
+...
+
