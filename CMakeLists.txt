@@ -10,6 +10,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(SOURCE_FILES
     src/main.cpp
     src/App.cpp
+    src/Vector.hpp
 )
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 
